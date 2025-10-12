@@ -1,0 +1,198 @@
+# Network Device Configurations
+# Module 6 - Reverse APIs and Event Driven Automation
+
+# Router Configurations
+routers:
+  router1:
+    hostname: "Router1"
+    management_ip: "192.168.1.1"
+    device_type: "cisco_ios"
+    connection:
+      ssh_port: 22
+      netconf_port: 830
+      restconf_port: 443
+      restconf_root: "/restconf"
+    credentials:
+      username: "admin"
+      password: "password"  # Change in production
+      enable_secret: "enable123"  # Change in production
+    protocols:
+      ssh: true
+      telnet: false
+      netconf: true
+      restconf: true
+      snmp:
+        enabled: true
+        community: "public"  # Change in production
+        version: "2c"
+    
+  router2:
+    hostname: "Router2"
+    management_ip: "192.168.2.1"
+    device_type: "cisco_ios"
+    connection:
+      ssh_port: 22
+      netconf_port: 830
+      restconf_port: 443
+      restconf_root: "/restconf"
+    credentials:
+      username: "admin"
+      password: "password"  # Change in production
+      enable_secret: "enable123"  # Change in production
+    protocols:
+      ssh: true
+      telnet: false
+      netconf: true
+      restconf: true
+      snmp:
+        enabled: true
+        community: "public"  # Change in production
+        version: "2c"
+
+# Switch Configurations  
+switches:
+  switch1:
+    hostname: "Switch1"
+    management_ip: "192.168.1.2"
+    device_type: "cisco_ios"
+    connection:
+      ssh_port: 22
+      netconf_port: 830
+      restconf_port: 443
+      restconf_root: "/restconf"
+    credentials:
+      username: "admin"
+      password: "password"  # Change in production
+      enable_secret: "enable123"  # Change in production
+    protocols:
+      ssh: true
+      telnet: false
+      netconf: false  # May not be supported on older switches
+      restconf: false  # May not be supported on older switches
+      snmp:
+        enabled: true
+        community: "public"  # Change in production
+        version: "2c"
+
+# Firewall Configurations
+firewalls:
+  firewall1:
+    hostname: "Firewall1"
+    management_ip: "192.168.1.254"
+    device_type: "cisco_asa"
+    connection:
+      ssh_port: 22
+    credentials:
+      username: "admin"
+      password: "password"  # Change in production
+      enable_secret: "enable123"  # Change in production
+    protocols:
+      ssh: true
+      telnet: false
+      netconf: false
+      restconf: false
+      snmp:
+        enabled: true
+        community: "public"  # Change in production
+        version: "2c"
+
+# Webhook Configuration
+webhook_settings:
+  # FastAPI application settings
+  app:
+    host: "0.0.0.0"
+    port: 8000
+    reload: true
+    log_level: "info"
+    workers: 1
+  
+  # External API settings
+  external_apis:
+    dad_jokes:
+      url: "https://icanhazdadjoke.com/"
+      timeout: 10
+      headers:
+        Accept: "application/json"
+    
+    quotes:
+      url: "https://api.quotable.io/random"
+      timeout: 10
+    
+    facts:
+      url: "https://uselessfacts.jsph.pl/random.json"
+      timeout: 10
+      params:
+        language: "en"
+  
+  # Network operation settings
+  network_ops:
+    default_timeout: 30
+    max_concurrent_connections: 10
+    retry_attempts: 3
+    retry_delay: 1
+    
+    netmiko:
+      global_delay_factor: 1
+      banner_timeout: 15
+      auth_timeout: 10
+      
+    restconf:
+      verify_ssl: false
+      timeout: 30
+      
+    netconf:
+      timeout: 30
+      hostkey_verify: false
+
+# Development and Testing Settings
+development:
+  simulation_mode: true  # Use simulated responses for learning
+  debug_mode: true
+  log_requests: true
+  cors_enabled: true
+  allowed_origins:
+    - "http://localhost:3000"
+    - "http://127.0.0.1:3000"
+    - "http://localhost:8080"
+    - "http://127.0.0.1:8080"
+
+# Production Settings (for reference)
+production:
+  simulation_mode: false
+  debug_mode: false
+  log_requests: false
+  cors_enabled: false
+  security:
+    api_key_required: true
+    rate_limiting: true
+    request_size_limit: "10MB"
+    
+# Lab Environment Settings
+lab_environment:
+  # GNS3/EVE-NG settings
+  simulator:
+    type: "GNS3"  # or "EVE-NG" or "Physical"
+    management_network: "192.168.1.0/24"
+    device_base_config: |
+      ! Basic device configuration template
+      enable secret enable123
+      username admin privilege 15 secret password
+      ip ssh version 2
+      ip ssh time-out 60
+      ip ssh authentication-retries 3
+      line vty 0 4
+       login local
+       transport input ssh
+      !
+      netconf-yang
+      restconf
+      ip http server
+      ip http secure-server
+      ip http authentication local
+  
+  # Student access settings
+  student_access:
+    console_access: true
+    ssh_access: true
+    web_gui_access: true
+    api_access: true

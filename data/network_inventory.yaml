@@ -1,0 +1,145 @@
+# Network Inventory Configuration
+# Module 6 - Reverse APIs and Event Driven Automation
+
+network:
+  domain: "lab.local"
+  dns_servers:
+    - "8.8.8.8"
+    - "8.8.4.4"
+  ntp_servers:
+    - "192.168.1.100"
+    - "pool.ntp.org"
+
+devices:
+  routers:
+    - hostname: "Router1"
+      management_ip: "192.168.1.1"
+      device_type: "cisco_ios"
+      vendor: "Cisco"
+      model: "ISR 2901"
+      credentials:
+        username: "admin"
+        password: "password"
+        enable_secret: "enable123"
+      interfaces:
+        GigabitEthernet0/0:
+          description: "LAN Interface"
+          ip_address: "192.168.1.1/24"
+          status: "up"
+        GigabitEthernet0/1:
+          description: "WAN Interface"
+          ip_address: "10.0.0.1/30"
+          status: "up"
+        Serial0/0/0:
+          description: "Backup Link"
+          status: "down"
+      protocols:
+        ospf:
+          process_id: 1
+          router_id: "192.168.1.1"
+          networks:
+            - "192.168.1.0/24"
+            - "10.0.0.0/30"
+
+    - hostname: "Router2"
+      management_ip: "192.168.2.1"
+      device_type: "cisco_ios"
+      vendor: "Cisco"
+      model: "ISR 2901"
+      credentials:
+        username: "admin"
+        password: "password"
+        enable_secret: "enable123"
+      interfaces:
+        GigabitEthernet0/0:
+          description: "LAN Interface"
+          ip_address: "192.168.2.1/24"
+          status: "up"
+        Serial0/0/0:
+          description: "WAN Link to Router1"
+          ip_address: "10.0.0.2/30"
+          status: "up"
+
+  switches:
+    - hostname: "Switch1"
+      management_ip: "192.168.1.2"
+      device_type: "cisco_ios"
+      vendor: "Cisco"
+      model: "Catalyst 2960"
+      credentials:
+        username: "admin"
+        password: "password"
+      vlans:
+        - id: 1
+          name: "default"
+          description: "Default VLAN"
+        - id: 10
+          name: "users"
+          description: "User VLAN"
+        - id: 20
+          name: "servers"
+          description: "Server VLAN"
+        - id: 99
+          name: "management"
+          description: "Management VLAN"
+      interfaces:
+        FastEthernet0/1-12:
+          description: "User Access Ports"
+          vlan: 10
+          port_type: "access"
+        FastEthernet0/13-20:
+          description: "Server Access Ports"
+          vlan: 20
+          port_type: "access"
+        FastEthernet0/24:
+          description: "Trunk to Router"
+          port_type: "trunk"
+          allowed_vlans: "1,10,20,99"
+
+webhook_endpoints:
+  basic:
+    - name: "message"
+      path: "/basic/message"
+      method: "GET"
+      description: "Simple message return webhook"
+    - name: "echo"
+      path: "/basic/echo"
+      method: "POST"
+      description: "Echo received data"
+
+  external_apis:
+    - name: "dad_joke"
+      path: "/external/dad-joke"
+      method: "GET"
+      description: "Fetch random dad joke"
+      external_api: "https://icanhazdadjoke.com/"
+    - name: "quote"
+      path: "/external/quote"
+      method: "GET"
+      description: "Fetch inspirational quote"
+      external_api: "https://api.quotable.io/random"
+
+  network_operations:
+    - name: "netmiko_command"
+      path: "/netmiko/command"
+      method: "POST"
+      description: "Execute commands via Netmiko"
+      requires_auth: true
+    - name: "restconf_interfaces"
+      path: "/restconf/interfaces/{device_ip}"
+      method: "GET"
+      description: "Get interfaces via RESTCONF"
+      requires_auth: true
+    - name: "netconf_config"
+      path: "/netconf/config/{device_ip}"
+      method: "GET"
+      description: "Get configuration via NETCONF"
+      requires_auth: true
+
+api_settings:
+  host: "0.0.0.0"
+  port: 8000
+  reload: true
+  log_level: "info"
+  title: "Module 6 - Webhook & Event Driven Automation"
+  version: "1.0.0"
