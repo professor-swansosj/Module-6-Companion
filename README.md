@@ -1,8 +1,10 @@
-# 🚀 Module 6 Companion - Webhooks & Event-Driven Network Automation
+# Module 6 Companion - Webhooks & Event-Driven Network Automation
 
-Welcome to your hands-on exploration of **Webhooks** and **Event-Driven Automation**! Get ready to discover how networks can automatically respond to events in real-time. You'll build your own webhook server using FastAPI and see how devices can "talk back" to your applications when something interesting happens.
+## Software Defined Networking Course
 
-## 🎯 What You'll Master
+> **Welcome to Event-Driven Automation!** Get ready to discover how networks can automatically respond to events in real-time. You'll build your own webhook server using FastAPI and see how devices can "talk back" to your applications when something interesting happens.
+
+## 🎯 What You'll Practice
 
 By the end of this companion, you'll have the skills to:
 
@@ -12,7 +14,7 @@ By the end of this companion, you'll have the skills to:
 - **Automate network tasks** triggered by real-time events
 - **Configure Cisco devices** to send webhook notifications
 
-## 🗺️ Your Learning Journey
+## � Learning Path
 
 **Estimated Time:** 4-6 hours of hands-on practice
 
@@ -29,7 +31,7 @@ By the end of this companion, you'll have the skills to:
 | **05** | 🔌 **Network Ops** | Control network devices via webhooks |
 | **06** | ⚡ **Cisco Events** | Configure EDM applets for real automation |
 
-## 🚀 Quick Setup (Do This First!)
+## � Prerequisites
 
 1. **Clone and navigate:**
 
@@ -54,7 +56,7 @@ By the end of this companion, you'll have the skills to:
    pip install -r requirements.txt
    ```
 
-## 🎨 Practice Philosophy
+## � Practice Callouts
 
 This companion is your **coding playground**. We don't give you complete solutions - we give you the pieces and guide you to build something awesome!
 
@@ -65,14 +67,14 @@ This companion is your **coding playground**. We don't give you complete solutio
 - **✅ Validate**: Test what you built
 - **🚀 Extend**: Ideas to go further
 
-## 📁 Where to Start
+## � Getting Hands-On
 
 1. **Start here:** Read this entire README
 2. **Then go to:** `01_fastapi_intro/` - Your first steps with webhooks
 3. **Progress through:** Each numbered module in order
 4. **Need help?** Check the hints in each module's README
 
-## 🎪 What Makes This Fun
+## � What Makes This Fun
 
 - **Real network automation** - Your code will control actual devices
 - **Instant feedback** - See your webhook server respond in real-time  
@@ -98,12 +100,8 @@ You'll know you're succeeding when:
 - [x] You can trigger network commands via webhook calls
 - [x] You understand how events can trigger automation
 
-## 🚀 Ready to Build?
+## 🎉 Ready to Build?
 
-Head over to `01_fastapi_intro/` and let's get started! Remember - you've got this! 
+Head over to `01_fastapi_intro/` and let's get started! Remember - you've got this!
 
 The best way to learn automation is by automating. Let's make some network magic happen! ✨
-
----
-
-**Course:** Network Automation | **Prerequisites:** Python basics, API fundamentals, networking concepts
