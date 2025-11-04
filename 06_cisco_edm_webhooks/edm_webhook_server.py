@@ -1,5 +1,5 @@
 """
-Module 06: Cisco EDM Webhook Handler Server
+Section 06: Cisco EDM Webhook Handler Server
 
 TODO: Create webhook endpoints that receive and process alerts from Cisco EDM applets!
 This server completes the event-driven automation loop.
