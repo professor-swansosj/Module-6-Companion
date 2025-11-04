@@ -14,15 +14,15 @@ By the end of this companion, you'll have the skills to:
 - **Automate network tasks** triggered by real-time events
 - **Configure Cisco devices** to send webhook notifications
 
-## � Learning Path
+## 🗂 Learning Path
 
 **Estimated Time:** 4-6 hours of hands-on practice
 
-> 💡 **Pro Tip**: Take your time with each module. Experiment! Break things! That's how you really learn.
+> 💡 **Pro Tip**: Take your time with each section. Experiment! Break things! That's how you really learn.
 
-### Module Progression
+### Companion Section Progression
 
-| Module | Focus Area | What You'll Build |
+| Section | Focus Area | What You'll Build |
 |--------|------------|-------------------|
 | **01** | 🏁 **FastAPI Basics** | Understand webhooks & setup your environment |
 | **02** | 🖥️ **First Server** | Launch your first FastAPI server |
@@ -31,7 +31,7 @@ By the end of this companion, you'll have the skills to:
 | **05** | 🔌 **Network Ops** | Control network devices via webhooks |
 | **06** | ⚡ **Cisco Events** | Configure EDM applets for real automation |
 
-## � Prerequisites
+## 📋 Prerequisites
 
 1. **Clone and navigate:**
 
@@ -56,25 +56,25 @@ By the end of this companion, you'll have the skills to:
    pip install -r requirements.txt
    ```
 
-## � Practice Callouts
+## 🎯 Practice Callouts
 
 This companion is your **coding playground**. We don't give you complete solutions - we give you the pieces and guide you to build something awesome!
 
-### How Each Module Works
+### How Each Section Works
 
 - **📖 Learn**: Quick intro to the concept  
 - **🔨 Practice**: Hands-on TODO tasks
 - **✅ Validate**: Test what you built
 - **🚀 Extend**: Ideas to go further
 
-## � Getting Hands-On
+## 🚀 Getting Hands-On
 
 1. **Start here:** Read this entire README
 2. **Then go to:** `01_fastapi_intro/` - Your first steps with webhooks
 3. **Progress through:** Each numbered module in order
 4. **Need help?** Check the hints in each module's README
 
-## � What Makes This Fun
+## 😃 What Makes This Fun
 
 - **Real network automation** - Your code will control actual devices
 - **Instant feedback** - See your webhook server respond in real-time  
