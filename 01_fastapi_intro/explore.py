@@ -1,5 +1,5 @@
 """
-Module 01: FastAPI & Webhooks Exploration
+Section 01: FastAPI & Webhooks Exploration
 
 TODO: This module is about understanding concepts, not coding yet!
 Your mission: Get familiar with FastAPI documentation and webhook concepts.
