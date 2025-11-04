@@ -1,5 +1,5 @@
 """
-Module 03: Multiple Paths & Creative Responses
+Section 03: Multiple Paths & Creative Responses
 
 TODO: Build a webhook server with multiple creative endpoints!
 This module focuses on different paths, response types, and adding personality.
