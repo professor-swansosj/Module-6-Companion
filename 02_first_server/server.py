@@ -1,5 +1,5 @@
 """
-Module 02: Your First FastAPI Webhook Server
+Section 02: Your First FastAPI Webhook Server
 
 TODO: Complete this file to create a working FastAPI webhook server!
 Follow the TODO comments to build your server step by step.
