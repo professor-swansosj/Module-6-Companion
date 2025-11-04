@@ -1,5 +1,5 @@
 """
-Module 04: External APIs & Data Integration
+Section 04: External APIs & Data Integration
 
 TODO: Build webhook endpoints that integrate with external APIs!
 Focus on the Dad Jokes API, error handling, and combining data sources.
